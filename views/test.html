@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <div v-for="(ite,index) in item" key="ite.id">
+      <span>{{ ite.title }}</span><span>{{ite.username}}</span><span>{{ item.id }}</span>
+    </div>
+  </div>
+  <script src="./javascripts/vue.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.min.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+      item: [],
+        username: '',
+      },
+      methods:{
+
+      },
+      created(){
+this.$axios.get('http://localhost:3006/').then(
+  (res)=>console.log(res)
+)
+      }
+    })
+  </script>
+</body>
+
+</html>
